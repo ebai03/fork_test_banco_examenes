@@ -1,0 +1,2 @@
+# Workflow files run on Linux — always store and checkout with LF
+*.yml   text eol=lf
