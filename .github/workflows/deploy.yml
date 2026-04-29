@@ -14,5 +14,8 @@ jobs:
       DATA_DIR: /home/ebai/cursoteca/data
 
     steps:
-      - name: Pull latest course files
-        run: git -C "$DATA_DIR" pull --ff-only origin master
+      - name: Sync latest course files
+        run: |
+          git -C "$DATA_DIR" fetch origin master
+          git -C "$DATA_DIR" diff --stat HEAD origin/master || true
+          git -C "$DATA_DIR" reset --hard origin/master
